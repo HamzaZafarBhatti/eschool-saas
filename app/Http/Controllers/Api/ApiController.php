@@ -579,21 +579,26 @@ class ApiController extends Controller
                     $class_section_ids = $class_teacher->pluck('class_section_id');
                 }
                 //Find the Classes in which teacher is taking subjects
-                $class_section = $this->classSection->builder()->with('class', 'section', 'medium')/* ->whereNotIn('id', $class_section_ids) */;
+                $class_section = $this->classSection->builder()->with('class', 'section', 'medium')->whereNotIn('id', $class_section_ids);
 
                 $class_section = $class_section->whereHas('subject_teachers.class_subject', function ($q) use ($currentSemester) {
                     (!empty($currentSemester)) ? $q->where('semester_id', $currentSemester->id)->orWhereNull('semester_id') : $q->orWhereNull('semester_id');
                 })->get();
 
+                $all_class_sections = $this->classSection->builder()->with('class', 'section', 'medium');
+                $all_class_sections = $all_class_sections->whereHas('subject_teachers.class_subject', function ($q) use ($currentSemester) {
+                    (!empty($currentSemester)) ? $q->where('semester_id', $currentSemester->id)->orWhereNull('semester_id') : $q->orWhereNull('semester_id');
+                })->get();
+                // return $all_class_sections;
                 // $class_section = $class_section->get();
             } else {
                 // Staff
                 $class_section = $this->classSection->builder()->with('class', 'section', 'medium', 'class.stream')->get();
             }
-            return $class_section;
             ResponseService::successResponse('Data Fetched Successfully', null, [
                 'class_teacher' => $class_teacher ?? [],
                 'other'         => $class_section,
+                'all_class_sections' => $all_class_sections,
                 'semester'      => $currentSemester ?? null
             ]);
         } catch (\Throwable $th) {
