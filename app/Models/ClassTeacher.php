@@ -46,7 +46,7 @@ class ClassTeacher extends Model
 
     public function getClassIdAttribute(){
         if ($this->relationLoaded('class_section')) {
-            return $this->class_section->class_id;
+            return $this->class_section?->class_id;
         }
     }
 }
