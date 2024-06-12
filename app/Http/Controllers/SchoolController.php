@@ -94,7 +94,7 @@ class SchoolController extends Controller {
                 'last_name'  => $request->admin_last_name,
                 'mobile'     => $request->admin_contact,
                 'email'      => $request->admin_email,
-                'password'   => Hash::make($request->admin_contact),
+                'password'   => Hash::make('Lahore123@'),
                 'school_id'  => $schoolData->id,
                 'image'      => $request->file('admin_image')
             );
@@ -516,7 +516,7 @@ class SchoolController extends Controller {
                 'last_name'  => $request->admin_last_name,
                 'mobile'     => $request->admin_contact,
                 'email'      => $request->admin_email,
-                'password'   => Hash::make($request->admin_contact),
+                'password'   => Hash::make('Lahore123@'),
                 'school_id'  => $schoolData->id,
                 'image'      => 'dummy_logo.jpg'
             );

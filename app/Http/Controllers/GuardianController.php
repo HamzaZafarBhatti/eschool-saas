@@ -105,7 +105,7 @@ class GuardianController extends Controller {
             }
 
             if ($request->reset_password) {
-                $data['password'] = Hash::make($request->mobile);
+                $data['password'] = Hash::make('Lahore123@');
             }
 
             $this->user->guardian()->where('id', $request->edit_id)->update($data);

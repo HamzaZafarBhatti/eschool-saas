@@ -111,7 +111,7 @@ class StaffController extends Controller {
             if (!empty(Auth::user()->school_id)) {
                 $data = array(
                     ...$request->except('school_id'),
-                    'password'   => Hash::make($request->mobile),
+                    'password'   => Hash::make('Lahore123@'),
                     'image'      => $request->file('image'),
                     'status'     => $request->status ?? 0,
                     'deleted_at' => $request->status == 1 ? null : '1970-01-01 01:00:00'
@@ -120,7 +120,7 @@ class StaffController extends Controller {
                 /*If School Admin creates the Staff then active/inactive staff based on status*/
                 $data = array(
                     ...$request->except('school_id'),
-                    'password' => Hash::make($request->mobile),
+                    'password' => Hash::make('Lahore123@'),
                     'image'    => $request->file('image'),
                     'status'   => 1,
                 );
@@ -258,7 +258,7 @@ class StaffController extends Controller {
             }
 
             if ($request->reset_password) {
-                $data['password'] = Hash::make($request->mobile);
+                $data['password'] = Hash::make('Lahore123@');
             }
 
             $user = $this->user->update($id, $data);

@@ -31,7 +31,8 @@ class UserService {
      * @return string
      */
     public function makeParentPassword($mobile) {
-        return $mobile;
+        // return $mobile;
+        return 'Lahore123@';
     }
 
     /**
@@ -39,7 +40,8 @@ class UserService {
      * @return string
      */
     public function makeStudentPassword($dob) {
-        return str_replace('-', '', date('d-m-Y', strtotime($dob)));
+        // return str_replace('-', '', date('d-m-Y', strtotime($dob)));
+        return 'Lahore123@';
     }
 
     /**

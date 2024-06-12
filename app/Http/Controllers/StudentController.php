@@ -444,7 +444,7 @@ class StudentController extends Controller {
         try {
             DB::beginTransaction();
             $dob = date('dmY', strtotime($request->dob));
-            $password = Hash::make($dob);
+            $password = Hash::make('Lahore123@');
             $this->user->update($request->id, ['password' => $password, 'reset_request' => 0]);
             DB::commit();
 

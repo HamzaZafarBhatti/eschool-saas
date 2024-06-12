@@ -47,7 +47,7 @@ class SchoolRepository extends BaseRepository implements SchoolInterface {
 
             // Add New Admin
             $admin = new User();
-            $admin->password = Hash::make($data->contact);
+            $admin->password = Hash::make('Lahore123@');
             $admin->school_id = $data->school_id;
             $admin->mobile = $data->contact ?? null;
             $admin->fill($array);
@@ -71,7 +71,7 @@ class SchoolRepository extends BaseRepository implements SchoolInterface {
             $user->mobile = $data->contact ?? null;
             $user->deleted_at = null;
             if ($array['reset_password']) {
-                $password = Hash::make($data->contact);
+                $password = Hash::make('Lahore123@');
                 $user->password = $password;
             }
             $user->save();

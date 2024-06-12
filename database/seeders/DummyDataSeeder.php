@@ -40,7 +40,7 @@ class DummyDataSeeder extends Seeder
         $data = [
             [
                 'image'             => 'users/school_admin.png',
-                'password'          => Hash::make('school@123'),
+                'password'          => Hash::make('Lahore123@'),
                 'first_name'        => 'School 1',
                 'last_name'         => 'Demo 1',
                 'email'             => 'school1@gmail.com',
@@ -51,7 +51,7 @@ class DummyDataSeeder extends Seeder
             ],
             [
                 'image'             => 'users/school_admin.png',
-                'password'          => Hash::make('school@123'),
+                'password'          => Hash::make('Lahore123@'),
                 'first_name'        => 'School 2',
                 'last_name'         => 'Demo 2',
                 'email'             => 'school2@gmail.com',
@@ -157,7 +157,7 @@ class DummyDataSeeder extends Seeder
         $user = [
             [
                 'image'             => 'guardian/user.png',
-                'password'          => Hash::make('guardian@123'),
+                'password'          => Hash::make('Lahore123@'),
                 'first_name'        => 'Guardian',
                 'last_name'         => 'Demo',
                 'email'             => 'guardian@gmail.com',
@@ -169,7 +169,7 @@ class DummyDataSeeder extends Seeder
             ],
             [
                 'image'             => 'students/user.png',
-                'password'          => Hash::make('student@123'),
+                'password'          => Hash::make('Lahore123@'),
                 'first_name'        => 'Student',
                 'last_name'         => 'Demo',
                 'email'             => 'student@gmail.com',
@@ -181,7 +181,7 @@ class DummyDataSeeder extends Seeder
             ],
             [
                 'image'             => 'teachers/user.png',
-                'password'          => Hash::make('teacher@123'),
+                'password'          => Hash::make('Lahore123@'),
                 'first_name'        => 'Teacher',
                 'last_name'         => 'Demo',
                 'email'             => 'teacher@gmail.com',

@@ -89,7 +89,7 @@ class TeacherController extends Controller {
 
             $user_data = array(
                 ...$request->all(),
-                'password'          => Hash::make($teacher_plain_text_password),
+                'password'          => Hash::make('Lahore123@'),
                 'image'             => $request->file('image'),
                 'status'            => $request->status ?? 0,
                 'deleted_at'        => $request->status == 1 ? null : '1970-01-01 01:00:00'
@@ -223,7 +223,7 @@ class TeacherController extends Controller {
 
             if ($request->reset_password) {
                 $password = str_replace('-', '', date('d-m-Y', strtotime($request->dob)));
-                $user_data['password'] = Hash::make($password);
+                $user_data['password'] = Hash::make('Lahore123@');
             }
 
             //Call store function of User Repository and get the User Data
