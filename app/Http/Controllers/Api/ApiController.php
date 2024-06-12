@@ -398,6 +398,7 @@ class ApiController extends Controller
             DB::commit();
             ResponseService::successResponse("Data Stored Successfully");
         } catch (Throwable $e) {
+            return $e->getMessage();
             ResponseService::logErrorResponse($e);
             ResponseService::errorResponse();
         }
