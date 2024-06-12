@@ -36,7 +36,7 @@ class ClassTeacher extends Model
     }
 
     public function class_section() {
-        return $this->belongsTo(ClassSection::class, 'class_section_id')->withTrashed();
+        return $this->belongsTo(ClassSection::class, 'class_section_id')/* ->withTrashed() */;
     }
 
     public function teacher() {
