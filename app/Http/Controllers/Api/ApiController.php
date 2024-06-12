@@ -360,6 +360,7 @@ class ApiController extends Controller
             $dates = array_column($request->leave_details, 'date');
             $from_date = min($dates);
             $to_date = max($dates);
+            dd($from_date, $to_date);
 
             $leave_data = [
                 'user_id' => Auth::user()->id,
