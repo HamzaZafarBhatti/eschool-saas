@@ -589,7 +589,6 @@ class ApiController extends Controller
                 $all_class_sections = $all_class_sections->whereHas('subject_teachers.class_subject', function ($q) use ($currentSemester) {
                     (!empty($currentSemester)) ? $q->where('semester_id', $currentSemester->id)->orWhereNull('semester_id') : $q->orWhereNull('semester_id');
                 })->get();
-                dd($class_teacher, $class_section, $all_class_sections);
                 // $class_section = $class_section->get();
             } else {
                 // Staff
