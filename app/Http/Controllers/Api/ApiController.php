@@ -375,6 +375,7 @@ class ApiController extends Controller
             $leave = $this->leave->create($leave_data);
             foreach ($request->leave_details as $key => $leaves) {
                 $day = date('l', strtotime($leaves['date']));
+                info($day);
                 if (!in_array($day, $holidays) && !in_array($leaves['date'], $public_holiday)) {
                     $data[] = [
                         'leave_id' => $leave->id,
@@ -383,7 +384,7 @@ class ApiController extends Controller
                     ];
                 }
             }
-            dd($data);
+            return $data;
             $this->leaveDetail->createBulk($data);
 
             $user = $this->user->builder()->whereHas('roles.permissions', function ($q) {
