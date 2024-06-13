@@ -838,14 +838,14 @@
             </li>
         @endcanany
 
-        @if (Auth::user()->hasRole('Super Admin'))
+        {{-- @if (Auth::user()->hasRole('Super Admin'))
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('system-update.index') }}">
                     <i class="fa fa-cloud-download menu-icon"></i>
                     <span class="menu-title">{{ __('system_update') }}</span>
                 </a>
             </li>
-        @endif
+        @endif --}}
 
     </ul>
 </nav>
