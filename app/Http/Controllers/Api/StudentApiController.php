@@ -768,6 +768,29 @@ class StudentApiController extends Controller {
                 })
                 ->orderby('start_date')
                 ->paginate(15);
+            dd($this->onlineExam->builder()
+            ->where(['class_section_id' => $classSectionId, 'session_year_id' => $sessionYear->id])
+            ->where('end_date', '>=', now())
+            ->has('question_choice')
+            ->with('class_subject', 'question_choice:id,online_exam_id,marks')
+            ->whereDoesntHave('student_attempt', function ($q) use ($student) {
+                $q->where('student_id', $student->user_id);
+            })
+            ->when($request->class_subject_id, function ($query, $classSubjectId) {
+                return $query->where('class_subject_id', $classSubjectId);
+            })
+            ->orderby('start_date')->toSql(), $this->onlineExam->builder()
+            ->where(['class_section_id' => $classSectionId, 'session_year_id' => $sessionYear->id])
+            ->where('end_date', '>=', now())
+            ->has('question_choice')
+            ->with('class_subject', 'question_choice:id,online_exam_id,marks')
+            ->whereDoesntHave('student_attempt', function ($q) use ($student) {
+                $q->where('student_id', $student->user_id);
+            })
+            ->when($request->class_subject_id, function ($query, $classSubjectId) {
+                return $query->where('class_subject_id', $classSubjectId);
+            })
+            ->orderby('start_date')->getBindings());
 
             ResponseService::successResponse('Data Fetched Successfully', $onlineExamData);
         } catch (Throwable $e) {
