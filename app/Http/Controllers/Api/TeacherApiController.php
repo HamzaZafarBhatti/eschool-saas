@@ -1117,7 +1117,7 @@ class TeacherApiController extends Controller
             ResponseService::successResponse('Data Stored Successfully');
         } catch (Throwable $e) {
             ResponseService::logErrorResponse($e);
-            ResponseService::errorResponse();
+            ResponseService::errorResponse($e->getMessage());
         }
     }
 
